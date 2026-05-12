@@ -1,0 +1,261 @@
+/* ==============================
+   ATELIER – producto.css
+   Uso exclusivo en producto.html
+   ============================== */
+
+
+:root {
+  --verde-limon: #060706;
+  --negro: #000;
+  --gris:  #444;
+  --blanco:#fff;
+}
+
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--blanco);
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--blanco);
+  padding: 30px 20px;
+  flex-wrap: nowrap;
+}
+
+header img { max-width: 680px; }
+
+.logo-slogan {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+.botones-header {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-right: 0;
+}
+
+
+.menu { position: relative; }
+.menu > button {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--verde-limon);
+  padding: 0.5px 30px;
+  flex-wrap: wrap;
+}
+
+
+
+select {
+  padding: 8px;
+  border-radius: 5px;
+  margin: 10px;
+  border: 1px solid #ccc;
+}
+
+
+.carrito-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+
+.carrito-icono {
+  position: relative;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--negro);
+  padding: 5px 10px;
+  background-color: white;
+  border-radius: 6px;
+  user-select: none;
+  font-weight: bold;
+}
+
+
+.contador {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: black;
+  color: yellow;
+  font-size: 12px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 18px;
+}
+
+
+.carrito-popup {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  padding: 15px;
+  width: 220px;
+  display: none;
+  z-index: 1000;
+}
+.carrito-popup h4        { margin-top: 0; font-size: 16px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+.carrito-popup ul        { list-style: none; padding: 0; margin: 10px 0; }
+.carrito-popup li        { margin-bottom: 8px; font-size: 14px; }
+.carrito-popup .btn-comprar{ width: 100%; margin-top: 10px; }
+
+/* ======= CONTENIDO PRINCIPAL, ARTESANA Y PRODUCTOS ======= */
+main { text-align: center; padding: 20px; }
+
+/* ----- Contenedor de carrusel y tarjeta lateral ----- */
+.carousel-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* ---- Tarjeta lateral de la artesana ---- */
+.side-card {
+  flex: 0 0 250px;
+  background: #000;
+  padding: 0px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-card img {
+  width: 200px;
+  height: 250px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.side-card h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+  margin: -19px 0px 5px;
+  background-color: var(--verde-limon);
+  padding: 4px 1px;
+  border-radius: 0;
+  text-align: center;
+}
+
+.side-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+
+.carousel {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  max-width: 700px;
+  position: relative;
+  justify-content: center;
+}
+
+
+.carousel-track {
+  display: flex;
+  justify-content: center;
+  width: max-content;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item     { min-width: 200px; margin: 0 5px; }
+
+
+.card {
+  background: white;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.card img  { width: 150px; height: 235px; border-radius: 10px; margin-bottom: 5px; }
+.card h3   { background-color: #000; margin: 0; padding: 4px; color: white; }
+.card p    { font-weight: bold; margin: 5px; color: var(--negro); }
+
+.btn-comprar{
+  background: var(--verde-limon);
+  border: none;
+  padding: 6px 26px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+.arrows {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  color: #000;
+  cursor: pointer;
+  z-index: 10;
+  background: white;
+  padding: 5px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.arrows.prev { left: 10px; }
+.arrows.next { right: 10px; }
+
+.dots{
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.dot{
+  height: 10px; width: 10px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot.active{ background-color: var(--verde-limon); }
+

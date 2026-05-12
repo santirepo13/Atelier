@@ -1,0 +1,125 @@
+/* =============================
+   ATELIER – Login styles
+   Exclusivo para login.html
+   ============================= */
+
+:root {
+  --verde-limon: #c0ea35;
+  --negro: #000;
+  --gris:  #555;
+  --blanco:#fff;
+}
+
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ----- Layout----- */
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: var(--blanco);
+  display: flex;              /* ← login centrado en columna */
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;                  /* separación logo / formulario */
+  padding-top: 30px;
+  min-height: 100vh;
+}
+
+/* Logo grande */
+.logo-login {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+}
+
+/* ----- Caja ----- */
+.login-box {
+  width: 100%;
+  max-width: 430px;
+  background: var(--blanco);
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 36px 32px 42px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Título de la caja */
+.login-box h2 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+/* Subtítulo  */
+.subtitle {
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: var(--gris);
+  margin-bottom: 28px;
+}
+
+/* ---- Formulario  */
+.form-group { margin-bottom: 18px; }
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+  color: var(--negro);
+}
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+/* ---- Botón "Iniciar sesión"  */
+.btn-primary {
+  width: 100%;
+  background: var(--verde-limon);
+  border: none;
+  padding: 10px 0;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+
+
+/* ---- Botón "Continuar con Google"  */
+.google-btn {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--blanco);
+  cursor: pointer;
+  margin-top: 6px;
+}
+.google-btn img { width: 18px; height: 18px; }
+
+/* ---- Enlaces de recuperación */
+.extra-links {
+  text-align: center;
+  margin-top: 18px;
+}
+.extra-links a {
+  font-size: 0.88rem;
+  color: #648c05;
+  text-decoration: none;
+}
+
+.extra-links a[href="register.html"] {
+  color: black; /* solo el enlace de registro va en negro */
+}
+.extra-links a:hover { text-decoration: underline; }

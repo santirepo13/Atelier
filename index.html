@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATELIER - Arte que cuenta historias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div id="globalLoader" class="global-loader">
+  <div class="loader-spinner"></div>
+</div>
+
+<!-- ░░ CABECERA ░░ -->
+<header>
+  <a href="index.html" class="logo-link" aria-label="Volver al inicio">
+    <div class="logo-slogan">
+      <img src="./img/imagenLogo.png" alt="Logo ATELIER" />
+    </div>
+  </a>
+
+  <div class="botones-header">
+    <!-- Menú Productos -->
+    <div class="menu dropdown" data-target="submenuProductos">
+      <button>Productos ▼</button>
+      <div id="submenuProductos" class="subcategorias">
+        <ul>
+          <li class="categoria">Decoración ▼
+            <ul class="subcat">
+              <li><a href="producto.html">Cojines</a></li>
+              <li>Tapetes</li>
+              <li>Acolchados</li>
+            </ul>
+          </li>
+          <li class="categoria">Cosmética ▼
+            <ul class="subcat">
+              <li>Jabones</li>
+              <li>Perfumes</li>
+              <li>Maquillaje</li>
+            </ul>
+          </li>
+          <li class="categoria">Moda ▼
+            <ul class="subcat">
+              <li>Camisas</li>
+              <li>Pantalones</li>
+              <li>Vestidos</li>
+            </ul>
+          </li>
+          <li class="categoria">Accesorios ▼
+            <ul class="subcat">
+              <li>Pulseras</li>
+              <li>Aretes</li>
+              <li>Collares</li>
+            </ul>
+          </li>
+          <li class="categoria">Alimentos ▼
+            <ul class="subcat">
+              <li>Mermeladas</li>
+              <li>Snacks</li>
+              <li>Bebidas</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Menú Servicios -->
+    <div class="menu dropdown" data-target="submenuServicios">
+      <button>Servicios ▼</button>
+      <div id="submenuServicios" class="subcategorias">
+        <ul>
+          <li><a href="servicios/trabajaconnosotros.html">Trabaja con nosotros</a></li>
+          <li><a href="servicios/vendeconnosotros.html">Vende con nosotros</a></li>
+          <li><a href="servicios/listadedeseos.html">Lista de deseos</a></li>
+          <li><a href="servicios/comprascorporativas.html">Compras corporativas</a></li>
+          <li><a href="servicios/servicioalcliente.html">Servicio al cliente</a></li>
+          <li><a href="servicios/PQR.html">PQR</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Botón Inicio / Usuario -->
+    <div class="menu">
+      <button onclick="location.href='login.html'">Iniciar Sesión</button>
+    </div>
+  </div>
+</header>
+
+<!-- ░░ MENÚ HAMBURGUESA + SIDEBAR RESPONSIVE (solo móviles/tablets) ░░ -->
+<div id="btnMenuHamburguesa" class="hamburger" style="display:none;">
+  <button aria-label="Abrir menú">&#9776;</button>
+</div>
+
+<nav id="sidebarMenu" class="sidebar-menu">
+  <div class="sidebar-header">
+    <span style="font-size:1.2em;font-weight:bold;">Menú</span>
+    <button id="btnCerrarSidebar" aria-label="Cerrar menú">&times;</button>
+  </div>
+  <ul class="sidebar-lista">
+    <!-- USUARIO CON SUBMENÚ DESPLEGABLE -->
+    <li class="sidebar-user-li">
+      <button id="sidebarUserBtn" class="usuario-btn">Iniciar Sesión</button>
+      <div id="sidebarUserMenu" class="sidebar-user-menu">
+        <button id="sidebarHistorialBtn">Historial</button>
+        <button id="sidebarLogoutBtn">Cerrar sesión</button>
+      </div>
+    </li>
+    <!-- Productos -->
+    <li>
+      <button class="submenu-toggle">Productos ▼</button>
+      <ul class="submenu">
+        <li>
+          <button class="submenu-toggle">Decoración ▼</button>
+          <ul class="submenu">
+            <li><a href="producto.html">Cojines</a></li>
+            <li><a href="#">Tapetes</a></li>
+            <li><a href="#">Acolchados</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="submenu-toggle">Cosmética ▼</button>
+          <ul class="submenu">
+            <li><a href="#">Jabones</a></li>
+            <li><a href="#">Perfumes</a></li>
+            <li><a href="#">Maquillaje</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="submenu-toggle">Moda ▼</button>
+          <ul class="submenu">
+            <li><a href="#">Camisas</a></li>
+            <li><a href="#">Pantalones</a></li>
+            <li><a href="#">Vestidos</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="submenu-toggle">Accesorios ▼</button>
+          <ul class="submenu">
+            <li><a href="#">Pulseras</a></li>
+            <li><a href="#">Aretes</a></li>
+            <li><a href="#">Collares</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="submenu-toggle">Alimentos ▼</button>
+          <ul class="submenu">
+            <li><a href="#">Mermeladas</a></li>
+            <li><a href="#">Snacks</a></li>
+            <li><a href="#">Bebidas</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <!-- Servicios -->
+    <li>
+      <button class="submenu-toggle">Servicios ▼</button>
+      <ul class="submenu">
+        <li><a href="servicios/trabajaconnosotros.html">Trabaja con nosotros</a></li>
+        <li><a href="servicios/vendeconnosotros.html">Vende con nosotros</a></li>
+        <li><a href="servicios/listadedeseos.html">Lista de deseos</a></li>
+        <li><a href="servicios/comprascorporativas.html">Compras corporativas</a></li>
+        <li><a href="servicios/servicioalcliente.html">Servicio al cliente</a></li>
+        <li><a href="servicios/PQR.html">PQR</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<!-- FIN SIDEBAR -->
+
+<!-- ░░ BARRA DE CARRITO ░░ -->
+<nav>
+  <div class="carrito-container">
+    <div class="carrito-icono" id="carritoToggle">
+      🛒<span class="contador">0</span>
+    </div>
+    <div class="carrito-popup" id="carritoPopup">
+      <h4>Tu carrito</h4>
+      <ul></ul>
+      <button class="btn-comprar" id="finalizarCompra">Finalizar compra</button>
+    </div>
+  </div>
+  <div id="historialPopup" class="historial-popup"></div>
+</nav>
+
+<!-- ░░ CONTENIDO PRINCIPAL ░░ -->
+<main>
+  <h2>RECOMENDADOS PARA TI</h2>
+  <br>
+  <br>
+
+  <div class="carousel-container">
+    <div class="carousel">
+      <span class="arrows prev" onclick="prev()">‹</span>
+      <div class="carousel-track" id="carousel-track"></div>
+      <span class="arrows next" onclick="next()">›</span>
+    </div>
+    <div class="dots"><span class="dot active"></span></div>
+  </div>
+</main>
+
+<!-- MODAL PAGO-->
+<div id="customPagoOverlay" class="custom-pago-overlay">
+  <div id="customPagoModal" class="custom-pago-modal">
+    <!-- Aquí va el contenido de cada paso -->
+  </div>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="./img/imagenLogo.png" alt="Logo ATELIER" />
+      <p>Arte que cuenta historias</p>
+    </div>
+    <div class="footer-contacto">
+      <h4>Contacto</h4>
+      <p>Email: contacto@atelier.com</p>
+      <p>Tel: +57 300 000 0000</p>
+      <p>Ubicación: Medellín, Colombia</p>
+    </div>
+    <div class="footer-redes">
+      <h4>Síguenos</h4>
+      <div class="iconos-redes">
+        <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="img/social.png" alt="Instagram"></a>
+        <a href="#"><img src="img/tik-tok.png" alt="Tiktok"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 ATELIER. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!--  SCRIPTS  -->
+<script type="module" src="js/script.js"></script>
+<script type="module" src="js/auth-state.js"></script>
+</body>
+</html>
