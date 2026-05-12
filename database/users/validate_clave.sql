@@ -1,0 +1,1 @@
+SELECT 1 FROM users WHERE uid = $1 AND clave_tipo = $2 AND clave_respuesta = $3;

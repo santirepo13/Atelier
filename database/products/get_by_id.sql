@@ -1,0 +1,1 @@
+SELECT id, nombre, precio, imagen, descripcion, categoria FROM products WHERE id = $1;

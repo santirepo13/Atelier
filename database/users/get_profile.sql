@@ -1,0 +1,1 @@
+SELECT uid, username, email, clave_tipo FROM users WHERE uid = $1;
