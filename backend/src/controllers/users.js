@@ -1,13 +1,7 @@
 const { queries, dbQuery } = require('../models/queries');
 
 exports.create = async (req, res, next) => {
-  console.log('RAW BODY:', JSON.stringify(req.body));
   const { uid, username, email, claveTipo, claveRespuesta } = req.body;
-  if (!uid)        console.log('MISSING: uid');
-  if (!username)   console.log('MISSING: username');
-  if (!email)      console.log('MISSING: email');
-  if (!claveTipo)  console.log('MISSING: claveTipo');
-  if (!claveRespuesta) console.log('MISSING: claveRespuesta');
   if (!uid || !username || !email || !claveTipo || !claveRespuesta) {
     return res.status(400).json({ error: 'Datos incompletos' });
   }

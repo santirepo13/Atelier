@@ -38,7 +38,7 @@ export async function googleLogin() {
 }
 
 export async function register(formData) {
-  const { username, email, password, claveTipo, claveRespuesta } = formData;
+  const { username, email, password, claveTipo, claveResp } = formData;
   const cred = await createUserWithEmailAndPassword(auth, email, password);
   await updateProfile(cred.user, { displayName: username });
 
@@ -51,7 +51,7 @@ export async function register(formData) {
       username,
       email,
       claveTipo,
-      claveRespuesta,
+      claveResp,
     }),
   });
 
