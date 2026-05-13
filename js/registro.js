@@ -23,7 +23,7 @@ function ocultarLoader() {
 
 const isSuccess = location.pathname.endsWith('registro-exito.html');
 if (isSuccess) {
-    setTimeout(() => (location.href = 'login.html'), 4000);
+    setTimeout(() => (location.href = 'views/login.html'), 4000);
 } else {
     const form = document.getElementById('registerForm');
     form.addEventListener('submit', async (e) => {
@@ -50,7 +50,7 @@ if (isSuccess) {
             await register({ username, email, password, claveTipo, claveResp });
             ocultarLoader();
             mostrarLoader();
-            setTimeout(() => { location.href = 'registro-exito.html'; }, 3000);
+            setTimeout(() => { location.href = 'views/registro-exito.html'; }, 3000);
         } catch (err) {
             ocultarLoader();
             alert('Error al registrar: ' + err.message);

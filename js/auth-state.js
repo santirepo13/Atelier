@@ -1,8 +1,6 @@
 import { auth } from './firebase-init.js';
 import { onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js';
 
-const BASE = window.location.pathname.includes('/views/') ? '../' : './';
-
 const headerMenu   = document.querySelector('.botones-header');
 const loginBtnBox  = headerMenu?.querySelector('.menu:last-child');
 const loginButton  = loginBtnBox?.querySelector('button');
@@ -37,7 +35,7 @@ function assignSidebarMenuListeners() {
         histSideBtn.onclick = (e) => {
             e.preventDefault();
             if (!window.location.pathname.endsWith('history.html')) {
-                location.href = `${BASE}history.html`;
+                location.href = 'views/history.html';
             } else {
                 sidebarUserMenu.style.display = 'none';
             }
@@ -76,7 +74,7 @@ onAuthStateChanged(auth, (user) => {
         };
         if (histBtn) histBtn.onclick = () => {
             if (!window.location.pathname.endsWith('history.html')) {
-                location.href = `${BASE}history.html`;
+                location.href = 'views/history.html';
             } else {
                 userMenu.style.display = 'none';
             }
@@ -101,7 +99,7 @@ onAuthStateChanged(auth, (user) => {
         loginButton.textContent = 'Iniciar Sesión';
         loginButton.classList.add('usuario-btn');
         userMenu.style.display = 'none';
-        loginButton.onclick = () => (location.href = `${BASE}login.html`);
+        loginButton.onclick = () => (location.href = 'views/login.html');
 
         if (sidebarUserBtn) {
             sidebarUserBtn.textContent = 'Iniciar Sesión';
@@ -113,7 +111,7 @@ onAuthStateChanged(auth, (user) => {
                 newSidebarUserBtn.classList.add('usuario-btn');
                 newSidebarUserBtn.onclick = (e) => {
                     e.preventDefault();
-                    location.href = `${BASE}login.html`;
+                    location.href = 'views/login.html';
                 };
             }
         }

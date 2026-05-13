@@ -1,5 +1,5 @@
-import { auth } from './firebase-init.js';
-import { fetchAPI } from './config/api.js';
+import { auth } from '../firebase-init.js';
+import { fetchAPI } from '../config/api.js';
 
 async function getToken() {
   return auth.currentUser.getIdToken();

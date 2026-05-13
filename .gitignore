@@ -1,2 +1,24 @@
-ateliershoppingsite-firebase-adminsdk-fbsvc-3d73a527ee.json
-backend/.env
+# Environment variables
+.env
+.env.*
+!backend/.env.example
+!js/config/env.example.js
+js/config/env.js
+
+# Node
+backend/node_modules/
+node_modules/
+
+# Editor
+.DS_Store
+*.swp
+*.swo
+*~
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+Thumbs.db

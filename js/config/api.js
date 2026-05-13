@@ -1,4 +1,4 @@
-export const API_BASE = 'http://localhost:3000/api';
+import { API_BASE } from './env.js';
 
 export async function fetchAPI(endpoint, options = {}) {
   const url = `${API_BASE}${endpoint}`;

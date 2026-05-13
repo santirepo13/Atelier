@@ -1,4 +1,4 @@
-import { auth } from './firebase-init.js';
+import { auth } from '../firebase-init.js';
 import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
@@ -7,7 +7,7 @@ import {
   updateProfile,
   signOut,
 } from 'https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js';
-import { fetchAPI } from './config/api.js';
+import { fetchAPI } from '../config/api.js';
 
 export async function login(email, password, claveTipo, claveRespuesta) {
   const cred = await signInWithEmailAndPassword(auth, email, password);

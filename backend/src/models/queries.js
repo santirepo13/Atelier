@@ -15,11 +15,11 @@ function loadSQL(dir) {
 }
 
 const queries = {
-  products: loadSQL(path.join(__dirname, '../../database/products')),
-  cart: loadSQL(path.join(__dirname, '../../database/cart')),
-  orders: loadSQL(path.join(__dirname, '../../database/orders')),
-  users: loadSQL(path.join(__dirname, '../../database/users')),
-  admin: loadSQL(path.join(__dirname, '../../database/adminQueries'))
+  products: loadSQL(path.join(__dirname, '../../../database/products')),
+  cart: loadSQL(path.join(__dirname, '../../../database/cart')),
+  orders: loadSQL(path.join(__dirname, '../../../database/orders')),
+  users: loadSQL(path.join(__dirname, '../../../database/users')),
+  admin: loadSQL(path.join(__dirname, '../../../database/adminQueries'))
 };
 
 async function dbQuery(sql, params) {

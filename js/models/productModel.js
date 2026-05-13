@@ -1,4 +1,4 @@
-import { fetchAPI } from './config/api.js';
+import { fetchAPI } from '../config/api.js';
 
 export async function getAllProducts() {
   return fetchAPI('/products');
