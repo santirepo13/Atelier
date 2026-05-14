@@ -1,7 +1,8 @@
 import { API_BASE } from './env.js';
+import { VERSION } from '../version.js';
 
 export async function fetchAPI(endpoint, options = {}) {
-  const url = `${API_BASE}${endpoint}`;
+  const url = `${API_BASE}${endpoint}?v=${VERSION}`;
   const res = await fetch(url, {
     ...options,
     headers: {

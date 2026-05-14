@@ -1,4 +1,5 @@
 import { login, googleLogin } from './models/authModel.js';
+import { fetchAPI } from './config/api.js';
 
 const loader = document.getElementById('globalLoader');
 let loaderMostrado = false;
@@ -28,18 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const email    = document.getElementById('username').value.trim();
-        const pass     = document.getElementById('password').value.trim();
+        const username  = document.getElementById('username').value.trim();
+        const pass      = document.getElementById('password').value.trim();
         const claveTipo = parseInt(document.getElementById('clave').value, 10);
         const claveResp = document.getElementById('claveRespuesta').value.trim().toLowerCase();
 
-        if (!email || !pass || !claveTipo || !claveResp || isNaN(claveTipo)) {
+        if (!username || !pass || !claveTipo || !claveResp || isNaN(claveTipo)) {
             alert('Completa todos los campos.');
             return;
         }
 
         try {
             mostrarLoader();
+
+            const userData = await fetchAPI(`/users/by-username/${encodeURIComponent(username)}`);
+            const email = userData.email;
+
             await login(email, pass, claveTipo, claveResp);
             ocultarLoader();
             location.href = 'index.html';
@@ -47,7 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!loaderMostrado) mostrarLoader();
             setTimeout(() => {
                 ocultarLoader();
-                alert('Error al iniciar sesión: ' + err.message);
+                if (err.status === 404) {
+                    alert('Usuario no encontrado.');
+                } else {
+                    alert('Error al iniciar sesión: ' + err.message);
+                }
             }, 700);
         }
     });

@@ -9,7 +9,7 @@ import {
 } from 'https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js';
 import { fetchAPI } from '../config/api.js';
 
-export async function login(email, password, claveTipo, claveRespuesta) {
+export async function login(email, password, claveTipo, ClaveRespuesta) {
   const cred = await signInWithEmailAndPassword(auth, email, password);
   const token = await cred.user.getIdToken();
 
@@ -17,7 +17,7 @@ export async function login(email, password, claveTipo, claveRespuesta) {
     const data = await fetchAPI('/users/2auth', {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ tipo: claveTipo, respuesta: claveRespuesta }),
+      body: JSON.stringify({ tipo: claveTipo, respuesta: ClaveRespuesta }),
     });
     if (!data.valid) {
       await signOut(auth);
@@ -38,7 +38,7 @@ export async function googleLogin() {
 }
 
 export async function register(formData) {
-  const { username, email, password, claveTipo, claveResp } = formData;
+  const { username, email, password, claveTipo, ClaveRespuesta } = formData;
   const cred = await createUserWithEmailAndPassword(auth, email, password);
   await updateProfile(cred.user, { displayName: username });
 
@@ -51,7 +51,7 @@ export async function register(formData) {
       username,
       email,
       claveTipo,
-      claveResp,
+      ClaveRespuesta,
     }),
   });
 

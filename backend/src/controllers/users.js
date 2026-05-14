@@ -31,3 +31,13 @@ exports.validateClave = async (req, res, next) => {
     res.json({ valid: result.rowCount > 0 });
   } catch (err) { next(err); }
 };
+
+exports.getByUsername = async (req, res, next) => {
+  const { username } = req.params;
+  if (!username) return res.status(400).json({ error: 'Falta usuario' });
+  try {
+    const result = await dbQuery(queries.users.get_by_username, [username]);
+    if (result.rows.length === 0) return res.status(404).json({ error: 'Usuario no encontrado' });
+    res.json({ email: result.rows[0].email });
+  } catch (err) { next(err); }
+};
