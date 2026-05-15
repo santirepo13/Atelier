@@ -1,29 +1,9 @@
-import { register } from './models/authModel.js';
-
-const loader = document.getElementById('globalLoader');
-let loaderMostrado = false;
-let loaderTimeout = null;
-
-function mostrarLoader() {
-    if (loader && !loaderMostrado) {
-        loader.style.opacity = '1';
-        loader.style.display = 'flex';
-        loaderMostrado = true;
-        loaderTimeout = setTimeout(ocultarLoader, 3000);
-    }
-}
-function ocultarLoader() {
-    if (loaderMostrado && loader) {
-        loader.style.opacity = '0';
-        setTimeout(() => loader.style.display = 'none', 500);
-        loaderMostrado = false;
-    }
-    clearTimeout(loaderTimeout);
-}
+import * as authController from './controllers/authController.js';
+import { showLoader, hideLoader } from './components/loader.js';
 
 const isSuccess = location.pathname.endsWith('registro-exito.html');
 if (isSuccess) {
-    setTimeout(() => (location.href = 'views/login.html'), 4000);
+    setTimeout(() => (location.href = '/views/login.html'), 4000);
 } else {
     const form = document.getElementById('registerForm');
     form.addEventListener('submit', async (e) => {
@@ -46,13 +26,13 @@ if (isSuccess) {
         }
 
         try {
-            mostrarLoader();
-            await register({ username, email, password, claveTipo, claveResp });
-            ocultarLoader();
-            mostrarLoader();
-            setTimeout(() => { location.href = 'views/registro-exito.html'; }, 3000);
+            showLoader();
+            await authController.register({ username, email, password, claveTipo, claveResp });
+            hideLoader();
+            showLoader();
+            setTimeout(() => { location.href = '/views/registro-exito.html'; }, 3000);
         } catch (err) {
-            ocultarLoader();
+            hideLoader();
             alert('Error al registrar: ' + err.message);
         }
     });

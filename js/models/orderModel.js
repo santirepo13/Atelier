@@ -1,25 +1,9 @@
-import { auth } from '../firebase-init.js';
-import { fetchAPI } from '../config/api.js';
+/**
+ * @typedef {Object} Order
+ * @property {number} id
+ * @property {string} fecha
+ * @property {string} status
+ * @property {Array<{product_name: string, product_price: number, quantity: number}>} items
+ */
 
-async function getToken() {
-  return auth.currentUser.getIdToken();
-}
-
-export async function createOrder(items, paymentMethod, total) {
-  const token = await getToken();
-  return fetchAPI('/orders', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}` },
-    body: JSON.stringify({ items, paymentMethod, total }),
-  });
-}
-
-export async function getOrders() {
-  const token = await getToken();
-  return fetchAPI('/orders', { headers: { Authorization: `Bearer ${token}` } });
-}
-
-export async function getOrder(id) {
-  const token = await getToken();
-  return fetchAPI(`/orders/${id}`, { headers: { Authorization: `Bearer ${token}` } });
-}
+export const OrderModel = {};

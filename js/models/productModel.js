@@ -1,9 +1,11 @@
-import { fetchAPI } from '../config/api.js';
+/**
+ * @typedef {Object} Product
+ * @property {number} id
+ * @property {string} nombre
+ * @property {string} descripcion
+ * @property {number} precio
+ * @property {string} imagen
+ * @property {string} [categoria]
+ */
 
-export async function getAllProducts() {
-  return fetchAPI('/products');
-}
-
-export async function getProduct(id) {
-  return fetchAPI(`/products/${id}`);
-}
+export const ProductModel = {};
