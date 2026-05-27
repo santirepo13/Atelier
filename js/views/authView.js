@@ -40,9 +40,13 @@ export function initLogin() {
     googleBtn.addEventListener('click', async () => {
       showLoader();
       try {
-        await authController.loginWithGoogle();
+        const result = await authController.loginWithGoogle();
         hideLoader();
-        location.href = 'index.html';
+        if (result.isNewUser) {
+          location.href = '/views/google-register.html';
+        } else {
+          location.href = 'index.html';
+        }
       } catch (err) {
         hideLoader();
         if (err.code !== 'auth/popup-closed-by-user' && err.code !== 'auth/cancelled-popup-request') {

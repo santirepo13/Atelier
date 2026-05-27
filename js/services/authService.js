@@ -33,7 +33,32 @@ export async function login(email, password, claveTipo, claveRespuesta) {
 export async function googleLogin() {
   const provider = new GoogleAuthProvider();
   const cred = await signInWithPopup(auth, provider);
-  return cred.user;
+
+  try {
+    await fetchAPI('/users/profile');
+    return { user: cred.user, isNewUser: false };
+  } catch (err) {
+    if (err.status === 404) {
+      return { user: cred.user, isNewUser: true };
+    }
+    throw err;
+  }
+}
+
+export async function completeGoogleRegistration(username, claveTipo, claveResp) {
+  const user = auth.currentUser;
+  if (!user) throw new Error('No hay sesión activa de Google');
+
+  await fetchAPI('/users', {
+    method: 'POST',
+    body: JSON.stringify({
+      uid: user.uid,
+      username,
+      email: user.email,
+      claveTipo,
+      claveRespuesta: claveResp,
+    }),
+  });
 }
 
 export async function register(formData) {

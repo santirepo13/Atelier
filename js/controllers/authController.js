@@ -8,6 +8,10 @@ export async function loginWithGoogle() {
   return authService.googleLogin();
 }
 
+export async function completeGoogleRegistration(username, claveTipo, claveResp) {
+  return authService.completeGoogleRegistration(username, claveTipo, claveResp);
+}
+
 export async function register(formData) {
   return authService.register(formData);
 }
